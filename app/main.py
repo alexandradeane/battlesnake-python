@@ -3,21 +3,9 @@ import os
 import random
 from AStar import *
 
-"""
-Todo:
-- figure out what /static method does
-- figure out how to save versions using git
-- figure out how to store multiple snake versions
-"""
-
 @bottle.route('/')
 def static():
     return "the server is running"
-
-#@bottle.route('/static/<path:path>')
-#def static(path):
-#    return bottle.static_file(path, root='static/')
-
 
 @bottle.post('/start')
 def start():
@@ -30,7 +18,6 @@ def start():
 
     return {
         'color': '#FFFF00',
-        'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'name': 'Yellow Starter Snake'
     }
 
@@ -46,7 +33,6 @@ def move():
     print direction
     return {
         'move': direction,
-        'taunt': 'battlesnake-python!'
     }
 
 
